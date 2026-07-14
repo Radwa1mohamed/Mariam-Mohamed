@@ -1376,6 +1376,307 @@
                 text-align: center;
             }
         }
+
+        /* ==========================================================================
+   تنسيقات قسم تفاصيل الاستشارة الفاخر والمطور (Premium Consult CSS)
+   ========================================================================== */
+.premium-consult-section {
+    padding: 120px 80px;
+    background-color: var(--white-pure);
+    position: relative;
+    z-index: 5;
+}
+
+.consult-wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px; /* مسافة مريحة بين الأجزاء */
+}
+
+/* الرأس التمهيدي */
+.section-intro {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.badge-premium {
+    background-color: rgba(240, 98, 146, 0.08);
+    color: var(--pink-soft);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(240, 98, 146, 0.15);
+}
+
+.main-consult-title {
+    font-size: 38px;
+    color: var(--navy-dark);
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 15px;
+}
+
+.main-consult-desc {
+    font-size: 16px;
+    color: var(--slate-gray);
+    line-height: 1.8;
+}
+
+/* تخطيط الأسطر المتقاطعة (Rows Layout) */
+.consult-row {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.consult-row.text-left-layout {
+    grid-template-columns: 0.9fr 1.1fr;
+}
+
+.row-pre-title {
+    color: var(--pink-soft);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.row-title {
+    font-size: 28px;
+    color: var(--navy-dark);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.row-desc {
+    font-size: 15px;
+    color: var(--slate-gray);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* قائمة الاستهداف بالتصميم الشبكي */
+.target-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.target-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--off-white);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.target-item:hover {
+    transform: translateX(-5px); /* حركة خفيفة لليمين تناسب الاتجاه العربي */
+    background-color: var(--white-pure);
+    box-shadow: 0 10px 25px rgba(10, 25, 47, 0.04);
+}
+
+.target-icon {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(240, 98, 146, 0.1);
+    color: var(--pink-soft);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.target-text h4 {
+    font-size: 16px;
+    color: var(--navy-dark);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.target-text p {
+    font-size: 14px;
+    color: var(--slate-gray);
+    line-height: 1.6;
+}
+
+/* جدول مسار الخطوات التفاعلية */
+.steps-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.timeline-step {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.step-number {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(240, 98, 146, 0.3);
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.3s ease;
+}
+
+.timeline-step:hover .step-number {
+    color: var(--pink-soft);
+}
+
+.step-info h4 {
+    font-size: 16px;
+    color: var(--navy-dark);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.step-info p {
+    font-size: 14px;
+    color: var(--slate-gray);
+    line-height: 1.6;
+}
+
+/* إطارات الصور الفاخرة ذات الزوايا المنحنية بالتناوب */
+.premium-image-frame {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(10, 25, 47, 0.12);
+    border: 6px solid var(--white-pure);
+    background-color: var(--navy-dark);
+}
+
+.frame-left-bend {
+    border-radius: 180px 40px 180px 180px;
+}
+
+.frame-right-bend {
+    border-radius: 40px 180px 180px 180px;
+}
+
+.premium-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.premium-image-frame:hover img {
+    transform: scale(1.05);
+}
+
+/* صندوق الـ CTA الفاخر */
+.cta-luxury-box {
+    background-color: var(--navy-dark);
+    color: var(--white-pure);
+    padding: 60px;
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 55px rgba(10, 25, 47, 0.25);
+}
+
+.cta-luxury-box::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(240, 98, 146, 0.15) 0%, transparent 75%);
+    top: -150px;
+    left: -150px;
+    pointer-events: none;
+}
+
+.cta-decor-sparkle {
+    font-size: 36px;
+    color: var(--pink-soft);
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+.cta-title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.cta-desc {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* أزرار متميزة */
+.btn-premium {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 32px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.btn-register-now {
+    background-color: var(--pink-soft);
+    color: var(--white-pure);
+    box-shadow: 0 10px 25px rgba(240, 98, 146, 0.35);
+}
+
+.btn-register-now:hover {
+    background-color: var(--white-pure);
+    color: var(--navy-dark);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+.btn-whatsapp-direct {
+    background-color: #25D366;
+    color: var(--white-pure);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+}
+
+.btn-whatsapp-direct:hover {
+    background-color: #128C7E;
+    transform: translateY(-4px);
+}
     </style>
 </head>
 
@@ -1456,6 +1757,119 @@
                 </div>
             </div>
         </main>
+
+        <!-- قسم تفاصيل الاستشارة الفاخر والمطور بالكامل -->
+<section class="premium-consult-section">
+    <div class="consult-wrapper">
+        
+        <!-- الرأس التمهيدي للقسم -->
+        <div class="section-intro">
+            <span class="badge-premium"><i class="fa-solid fa-crown"></i> استشارة استراتيجية مجانية</span>
+            <h2 class="main-consult-title">جلسة تشخيصية لمشروعك تصنع فارقاً حقيقياً</h2>
+            <p class="main-consult-desc">
+                أغلب المشاريع لا تفشل بسبب المنتج، بل بسبب **طريقة صياغة العرض**. في هذه الجلسة المكثفة (25 دقيقة) سنقوم بتشريح محتواك وتحويله إلى آلة بيع متكاملة.
+            </p>
+        </div>
+
+        <!-- المحور الأول: لمن صُممت هذه الاستشارة؟ -->
+        <div class="consult-row text-right-layout">
+            <div class="row-content">
+                <span class="row-pre-title">الفئة المستهدفة بدقة</span>
+                <h3 class="row-title">لمن صُممت هذه الجلسة تحديداً؟</h3>
+                <p class="row-desc">هذه الاستشارة مصممة بعناية لتناسب الشخصيات التي تبحث عن النمو والتميز الرقمي الفاخر:</p>
+                <div class="target-grid">
+                    <div class="target-item">
+                        <div class="target-icon"><i class="fa-solid fa-building-user"></i></div>
+                        <div class="target-text">
+                            <h4>رواد الأعمال وصاحبات المشاريع الفاخرة</h4>
+                            <p>من يريدون إطلاق خدمات متميزة وبناء حضور رقمي قوي وموثوق.</p>
+                        </div>
+                    </div>
+                    <div class="target-item">
+                        <div class="target-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                        <div class="target-text">
+                            <h4>مؤسسو المتاجر الرقمية والبراندات</h4>
+                            <p>من يطمحون إلى رفع معدل التحويل (Conversion Rate) عبر الكلمات البيعية المؤثرة.</p>
+                        </div>
+                    </div>
+                    <div class="target-item">
+                        <div class="target-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                        <div class="target-text">
+                            <h4>صناع المحتوى والمستشارون</h4>
+                            <p>من يحتاجون إلى سكريبتات احترافية تحافظ على انتباه العميل من الثانية الأولى.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-visual">
+                <div class="premium-image-frame frame-left-bend">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="لمن الاستشارة">
+                </div>
+            </div>
+        </div>
+
+        <!-- المحور الثاني: مسار الاستفادة والخطوات -->
+        <div class="consult-row text-left-layout reverse-on-mobile">
+            <div class="row-visual">
+                <div class="premium-image-frame frame-right-bend">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="كيفية الاستفادة">
+                </div>
+            </div>
+            <div class="row-content">
+                <span class="row-pre-title">خارطة طريق الجلسة</span>
+                <h3 class="row-title">كيف تخرج بأقصى استفادة ممكنة منها؟</h3>
+                <p class="row-desc">لتحقيق أقصى عائد من وقتنا المشترك، صممنا لك هذه الخطوات العملية المنظمة:</p>
+                
+                <div class="steps-timeline">
+                    <!-- الخطوة 1 -->
+                    <div class="timeline-step">
+                        <div class="step-number">01</div>
+                        <div class="step-info">
+                            <h4>التجهيز والتحليل الأولي</h4>
+                            <p>قبل الجلسة، شاركنا روابط حساباتك وموقعك الإلكتروني مع تحديد أهم 3 منافسين لك لنقوم بدراستهم مسبقاً.</p>
+                        </div>
+                    </div>
+                    <!-- الخطوة 2 -->
+                    <div class="timeline-step">
+                        <div class="step-number">02</div>
+                        <div class="step-info">
+                            <h4>التشريح المباشر والحلول السريعة</h4>
+                            <p>أثناء الـ 25 دقيقة، سنقوم بتشريح نصوص موقعك أو حساباتك بشكل حي ونعطيك تعديلات فورية تزيد المبيعات.</p>
+                        </div>
+                    </div>
+                    <!-- الخطوة 3 -->
+                    <div class="timeline-step">
+                        <div class="step-number">03</div>
+                        <div class="step-info">
+                            <h4>استلام المخرج النهائي الواضح</h4>
+                            <p>ستخرج من الجلسة وبيدك فكرة إعلانية مبتكرة وسكريبت مقترح لبدء استخدامه في حملتك القادمة فوراً.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- المحور الثالث: صندوق اتخاذ الإجراء السريع (Call to Action) -->
+        <div class="cta-luxury-box">
+            <div class="cta-decor-sparkle">✦</div>
+            <h3 class="cta-title">هل أنتِ مستعدة لبدء التحول؟</h3>
+            <p class="cta-desc">المقاعد الأسبوعية محدودة جداً لضمان تقديم جودة دراسة وتحليل تليق بعلامتك التجارية.</p>
+            
+            <div class="cta-buttons-container">
+                <a href="dataform.html" class="btn-premium btn-register-now">
+                    <span class="btn-glow-effect"></span>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>احجز مقعدك الاستشاري الآن</span>
+                </a>
+                <a href="https://wa.me/201234567890?text=أهلاً%20مريم،%20أرغب%20في%20استشارة%20سريعة%20لمشروعي" target="_blank" class="btn-premium btn-whatsapp-direct">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>تواصل مريح وسريع عبر واتساب</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <!-- قسم من نحن (About) -->
         <section id="about" class="about-section">
