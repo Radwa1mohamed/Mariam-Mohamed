@@ -32,7 +32,7 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--navy-dark); /* تم إبقاؤه كحلي داكن بناء على كودك الأخير */
+background-color: var(  --navy-dark);
             color: var(--color-text-dark);
             min-height: 100vh;
             display: flex;
@@ -108,6 +108,15 @@
             flex-direction: column;
         }
 
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
         label {
             font-size: 14px;
             font-weight: 600;
@@ -118,6 +127,8 @@
         input[type="text"],
         input[type="email"],
         input[type="tel"],
+        input[type="date"],
+        input[type="time"],
         select,
         textarea {
             width: 100%;
@@ -144,69 +155,6 @@
             font-size: 13px;
         }
 
-        /* تنسيق اختيار الأيام الثابتة بشكل شبكة أزرار مريحة وسلسة */
-        .dates-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            margin-top: 5px;
-        }
-
-        .day-chip {
-            text-align: center;
-            padding: 12px 6px;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 700;
-            transition: var(--transition-smooth);
-            user-select: none;
-        }
-
-        .day-chip:hover {
-            border-color: var(--pink-accent);
-            background-color: var(--pink-soft);
-        }
-
-        .day-chip.active {
-            background-color: var(--pink-accent);
-            border-color: var(--pink-accent);
-            color: #ffffff;
-        }
-
-        /* تنسيق شبكة الأوقات التفاعلية */
-        .time-slots-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 5px;
-        }
-
-        .time-slot {
-            text-align: center;
-            padding: 12px;
-            background-color: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-        }
-
-        .time-slot:hover {
-            border-color: var(--pink-accent);
-            background-color: var(--pink-soft);
-        }
-
-        .time-slot.active {
-            background-color: var(--pink-accent);
-            border-color: var(--pink-accent);
-            color: #ffffff;
-        }
-
         /* زر الإرسال الاحترافي الفخم باللون الوردي المعتمد */
         .submit-btn {
             width: 100%;
@@ -221,7 +169,6 @@
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(224, 86, 160, 0.3);
             transition: var(--transition-smooth);
-            margin-top: 10px;
         }
 
         .submit-btn:hover {
@@ -267,6 +214,10 @@
         }
 
         @media (max-width: 480px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
             .booking-container {
                 margin: 15px auto;
                 padding: 30px 20px;
@@ -277,13 +228,6 @@
             .header-badge {
                 padding: 5px 10px;
                 font-size: 11px;
-            }
-            .dates-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 6px;
-            }
-            .time-slots-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -317,13 +261,9 @@
             <input type="hidden" name="_next" value="">
             <input type="hidden" name="_captcha" value="false">
 
-            <!-- حقول خفية لتخزين اليوم والوقت المختار وإرسالهم للإيميل بنجاح -->
-            <input type="hidden" name="اليوم المفضل" id="selected-day" value="السبت" required>
-            <input type="hidden" name="الوقت المختار" id="selected-time" value="04:00 م" required>
-
             <div class="form-group">
                 <label for="name">الاسم بالكامل</label>
-                <input type="text" name="الاسم" id="name" required placeholder="أدخل اسمك هنا">
+                <input type="text" name="الاسم" id="name" required placeholder="أدخلي اسمكِ الكريم">
             </div>
 
             <div class="form-group">
@@ -336,7 +276,8 @@
                 <input type="tel" name="رقم الهاتف" id="phone" required placeholder="01xxxxxxxxx">
             </div>
 
-            <div class="form-group">
+            <!-- تم الحفاظ على اختياراتكِ الأصلية تماماً بناءً على طلبكِ -->
+          <div class="form-group">
                 <label for="session-type">نوع الجلسة / الاستشارة</label>
                 <select name="نوع الجلسة" id="session-type" required>
                     <option value="" disabled selected>اختر نوع الاستشارة</option>
@@ -346,28 +287,14 @@
                 </select>
             </div>
 
-            <!-- محدد الأيام الثابتة الأنيق والمبسط جداً -->
-            <div class="form-group">
-                <label>اختر اليوم المفضل للاستشارة</label>
-                <div class="dates-grid">
-                    <div class="day-chip active" data-day="السبت">السبت</div>
-                    <div class="day-chip" data-day="الأحد">الأحد</div>
-                    <div class="day-chip" data-day="الإثنين">الإثنين</div>
-                    <div class="day-chip" data-day="الثلاثاء">الثلاثاء</div>
-                    <div class="day-chip" data-day="الأربعاء">الأربعاء</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">التاريخ المفضل</label>
+                    <input type="date" name="التاريخ" id="date" required>
                 </div>
-            </div>
-
-            <!-- محدد الساعات التفاعلي -->
-            <div class="form-group">
-                <label>الوقت المفضل (بتوقيت القاهرة)</label>
-                <div class="time-slots-grid">
-                    <div class="time-slot" data-time="12:00 م">12:00 م</div>
-                    <div class="time-slot" data-time="02:00 م">02:00 م</div>
-                    <div class="time-slot active" data-time="04:00 م">04:00 م</div>
-                    <div class="time-slot" data-time="06:00 م">06:00 م</div>
-                    <div class="time-slot" data-time="08:00 م">08:00 م</div>
-                    <div class="time-slot" data-time="10:00 م">10:00 م</div>
+                <div class="form-group">
+                    <label for="time">الوقت المفضل</label>
+                    <input type="time" name="الوقت" id="time" required>
                 </div>
             </div>
 
@@ -387,36 +314,12 @@
             </svg>
         </div>
         <h3>تم طلب الاستشارة بنجاح!</h3>
-        <p>شكراً لك، سنتواصل معكِ عبر الواتساب في أقرب وقت لتأكيد الموعد النهائي للاستشارة الفردية.</p>
+        <p>شكراً لكِ، سنتواصل معكِ عبر الواتساب في أقرب وقت لتأكيد الموعد النهائي للاستشارة الفردية.</p>
     </div>
 
 </section>
 
 <script>
-    const selectedDayInput = document.getElementById('selected-day');
-    const selectedTimeInput = document.getElementById('selected-time');
-
-    // تفعيل اختيار الأيام الثابتة بلمسة واحدة وبسهولة تامة
-    const dayChips = document.querySelectorAll('.day-chip');
-    dayChips.forEach(chip => {
-        chip.addEventListener('click', function() {
-            dayChips.forEach(c => c.classList.remove('active'));
-            this.classList.add('active');
-            selectedDayInput.value = this.dataset.day;
-        });
-    });
-
-    // تفاعل واختيار الساعات
-    const timeSlots = document.querySelectorAll('.time-slot');
-    timeSlots.forEach(slot => {
-        slot.addEventListener('click', function() {
-            timeSlots.forEach(s => s.classList.remove('active'));
-            this.classList.add('active');
-            selectedTimeInput.value = this.dataset.time;
-        });
-    });
-
-    // إرسال البيانات
     document.getElementById('booking-form').addEventListener('submit', function(e) {
         e.preventDefault(); 
         
